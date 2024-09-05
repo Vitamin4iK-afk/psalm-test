@@ -12,8 +12,9 @@ final class Test
 
     public function __construct()
     {
-        // ToDo: This comment somehow affects the reproduction of the problem with its length.
-        self::$allowed_ids = Class1::get()->toArray();
+        self::$allowed_ids = iterator_to_array(
+            Class1::get(),
+        );
     }
 
     public static function getId(): int
